@@ -1,4 +1,10 @@
-2018-10-12 12:34:23,326 ERROR: Exception on /index [GET] [in c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py:1761]
+2018-10-12 14:44:51,100 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
+2018-10-12 14:46:36,885 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
+2018-10-12 14:48:37,723 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
+2018-10-12 14:49:03,011 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
+2018-10-12 14:50:36,066 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
+2018-10-12 15:00:32,679 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
+2018-10-12 15:00:37,796 ERROR: Exception on /explore [GET] [in c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,30 +20,10 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\Konstantin\projects\microblog\myapp\routes.py", line 39, in index
-    return render_template('index.html', title='Home page', posts=posts)
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\templating.py", line 135, in render_template
-    context, ctx.app)
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\templating.py", line 117, in _render
-    rv = template.render(context)
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\Konstantin\projects\microblog\myapp\templates\index.html", line 1, in top-level template code
-    {% extends "base.html"%}
-  File "C:\Users\Konstantin\projects\microblog\myapp\templates\base.html", line 30, in top-level template code
-    {% block content %}{% endblock %}
-  File "C:\Users\Konstantin\projects\microblog\myapp\templates\index.html", line 6, in block "content"
-    {{ form.hidden_tag() }}
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\jinja2\environment.py", line 430, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'form' is undefined
-2018-10-12 12:34:28,131 ERROR: Exception on /index [GET] [in c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py:1761]
+  File "C:\Users\Konstantin\projects\microblog\myapp\routes.py", line 147, in explore
+    page = requests.args.get('page', 1, type=int)
+NameError: name 'requests' is not defined
+2018-10-12 15:01:00,292 ERROR: Exception on /index [GET] [in c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -53,30 +39,10 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\Konstantin\projects\microblog\myapp\routes.py", line 39, in index
-    return render_template('index.html', title='Home page', posts=posts)
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\templating.py", line 135, in render_template
-    context, ctx.app)
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\templating.py", line 117, in _render
-    rv = template.render(context)
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\Konstantin\projects\microblog\myapp\templates\index.html", line 1, in top-level template code
-    {% extends "base.html"%}
-  File "C:\Users\Konstantin\projects\microblog\myapp\templates\base.html", line 30, in top-level template code
-    {% block content %}{% endblock %}
-  File "C:\Users\Konstantin\projects\microblog\myapp\templates\index.html", line 6, in block "content"
-    {{ form.hidden_tag() }}
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\jinja2\environment.py", line 430, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'form' is undefined
-2018-10-12 12:34:31,766 ERROR: Exception on /index [GET] [in c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py:1761]
+  File "C:\Users\Konstantin\projects\microblog\myapp\routes.py", line 24, in index
+    page = requests.args.get('page', 1, type=int)
+NameError: name 'requests' is not defined
+2018-10-12 15:01:59,277 ERROR: Exception on /explore [GET] [in c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -92,8 +58,51 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\Konstantin\projects\microblog\myapp\routes.py", line 39, in index
-    return render_template('index.html', title='Home page', posts=posts)
+  File "C:\Users\Konstantin\projects\microblog\myapp\routes.py", line 147, in explore
+    page = requests.args.get('page', 1, type=int)
+NameError: name 'requests' is not defined
+2018-10-12 15:02:24,143 ERROR: Exception on /explore [GET] [in c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\Konstantin\projects\microblog\myapp\routes.py", line 147, in explore
+    page = requests.args.get('page', 1, type=int)
+NameError: name 'requests' is not defined
+2018-10-12 15:03:09,835 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
+2018-10-12 15:11:22,393 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
+2018-10-12 15:12:30,378 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
+2018-10-12 15:14:44,867 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
+2018-10-12 15:20:44,464 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
+2018-10-12 15:21:22,108 ERROR: Exception on /user/valstad [GET] [in c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\Konstantin\projects\microblog\myapp\routes.py", line 92, in user
+    return render_template('user.html', user=user, posts=posts)
   File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\templating.py", line 135, in render_template
     context, ctx.app)
   File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\templating.py", line 117, in _render
@@ -106,22 +115,12 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "C:\Users\Konstantin\projects\microblog\myapp\templates\index.html", line 1, in top-level template code
+  File "C:\Users\Konstantin\projects\microblog\myapp\templates\user.html", line 1, in top-level template code
     {% extends "base.html"%}
-  File "C:\Users\Konstantin\projects\microblog\myapp\templates\base.html", line 30, in top-level template code
+  File "C:\Users\Konstantin\projects\microblog\myapp\templates\base.html", line 31, in top-level template code
     {% block content %}{% endblock %}
-  File "C:\Users\Konstantin\projects\microblog\myapp\templates\index.html", line 6, in block "content"
-    {{ form.hidden_tag() }}
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\jinja2\environment.py", line 430, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'form' is undefined
-2018-10-12 12:35:31,795 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
-2018-10-12 12:46:48,320 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
-2018-10-12 12:47:05,511 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
-2018-10-12 12:47:44,574 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
-2018-10-12 13:11:25,386 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
-2018-10-12 13:17:36,808 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
-2018-10-12 13:18:03,297 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
-2018-10-12 13:36:26,706 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
-2018-10-12 13:51:02,877 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
-2018-10-12 14:35:40,058 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
+  File "C:\Users\Konstantin\projects\microblog\myapp\templates\user.html", line 24, in block "content"
+    {% for post in posts %}
+TypeError: 'Pagination' object is not iterable
+2018-10-12 15:22:05,257 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
+2018-10-12 15:22:52,339 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]

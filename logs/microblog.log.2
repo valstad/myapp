@@ -1,14 +1,4 @@
-2018-10-12 11:22:34,327 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:44]
-2018-10-12 11:23:51,860 ERROR: Exception on /edit_profile [POST] [in c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
-    context)
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\sqlalchemy\engine\default.py", line 509, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.IntegrityError: UNIQUE constraint failed: user.username
-
-The above exception was the direct cause of the following exception:
-
+2018-10-12 12:34:23,326 ERROR: Exception on /index [GET] [in c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -24,55 +14,30 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\Konstantin\projects\microblog\myapp\routes.py", line 98, in edit_profile
-    db.session.commit()
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 153, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 943, in commit
-    self.transaction.commit()
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 467, in commit
-    self._prepare_impl()
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 447, in _prepare_impl
-    self.session.flush()
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2254, in flush
-    self._flush(objects)
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2380, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 66, in __exit__
-    compat.reraise(exc_type, exc_value, exc_tb)
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\sqlalchemy\util\compat.py", line 249, in reraise
-    raise value
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2344, in _flush
-    flush_context.execute()
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 391, in execute
-    rec.execute(self)
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 556, in execute
-    uow
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 177, in save_obj
-    mapper, table, update)
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 768, in _emit_update_statements
-    execute(statement, multiparams)
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 948, in execute
-    return meth(self, multiparams, params)
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 269, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1060, in _execute_clauseelement
-    compiled_sql, distilled_params
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1200, in _execute_context
-    context)
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1413, in _handle_dbapi_exception
-    exc_info
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\sqlalchemy\util\compat.py", line 265, in raise_from_cause
-    reraise(type(exception), exception, tb=exc_tb, cause=cause)
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\sqlalchemy\util\compat.py", line 248, in reraise
+  File "C:\Users\Konstantin\projects\microblog\myapp\routes.py", line 39, in index
+    return render_template('index.html', title='Home page', posts=posts)
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
-    context)
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\sqlalchemy\engine\default.py", line 509, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username [SQL: 'UPDATE user SET username=?, about_me=? WHERE user.id = ?'] [parameters: ('valstad', "I'm a cat", 2)] (Background on this error at: http://sqlalche.me/e/gkpj)
-2018-10-12 11:39:07,383 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
-2018-10-12 11:39:30,876 ERROR: Exception on /edit_profile [POST] [in c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py:1761]
+  File "C:\Users\Konstantin\projects\microblog\myapp\templates\index.html", line 1, in top-level template code
+    {% extends "base.html"%}
+  File "C:\Users\Konstantin\projects\microblog\myapp\templates\base.html", line 30, in top-level template code
+    {% block content %}{% endblock %}
+  File "C:\Users\Konstantin\projects\microblog\myapp\templates\index.html", line 6, in block "content"
+    {{ form.hidden_tag() }}
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\jinja2\environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'form' is undefined
+2018-10-12 12:34:28,131 ERROR: Exception on /index [GET] [in c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -88,27 +53,75 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\Konstantin\projects\microblog\myapp\routes.py", line 95, in edit_profile
-    if form.validate_on_submit():
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask_wtf\form.py", line 101, in validate_on_submit
-    return self.is_submitted() and self.validate()
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\wtforms\form.py", line 310, in validate
-    return super(Form, self).validate(extra)
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\wtforms\form.py", line 152, in validate
-    if not field.validate(self, extra):
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\wtforms\fields\core.py", line 206, in validate
-    stop_validation = self._run_validation_chain(form, chain)
-  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\wtforms\fields\core.py", line 226, in _run_validation_chain
-    validator(form, self)
-  File "C:\Users\Konstantin\projects\microblog\myapp\forms.py", line 46, in validate_username
-    raise ValidatorError('Please use a different username.')
-NameError: name 'ValidatorError' is not defined
-2018-10-12 11:40:11,717 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
-2018-10-12 12:29:49,512 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
-2018-10-12 12:30:36,437 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
-2018-10-12 12:30:55,079 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
-2018-10-12 12:31:13,909 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
-2018-10-12 12:31:40,273 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
-2018-10-12 12:32:20,193 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
-2018-10-12 12:32:56,932 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
-2018-10-12 12:34:17,834 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
+  File "C:\Users\Konstantin\projects\microblog\myapp\routes.py", line 39, in index
+    return render_template('index.html', title='Home page', posts=posts)
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Konstantin\projects\microblog\myapp\templates\index.html", line 1, in top-level template code
+    {% extends "base.html"%}
+  File "C:\Users\Konstantin\projects\microblog\myapp\templates\base.html", line 30, in top-level template code
+    {% block content %}{% endblock %}
+  File "C:\Users\Konstantin\projects\microblog\myapp\templates\index.html", line 6, in block "content"
+    {{ form.hidden_tag() }}
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\jinja2\environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'form' is undefined
+2018-10-12 12:34:31,766 ERROR: Exception on /index [GET] [in c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\Konstantin\projects\microblog\myapp\routes.py", line 39, in index
+    return render_template('index.html', title='Home page', posts=posts)
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\templating.py", line 135, in render_template
+    context, ctx.app)
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\flask\templating.py", line 117, in _render
+    rv = template.render(context)
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Konstantin\projects\microblog\myapp\templates\index.html", line 1, in top-level template code
+    {% extends "base.html"%}
+  File "C:\Users\Konstantin\projects\microblog\myapp\templates\base.html", line 30, in top-level template code
+    {% block content %}{% endblock %}
+  File "C:\Users\Konstantin\projects\microblog\myapp\templates\index.html", line 6, in block "content"
+    {{ form.hidden_tag() }}
+  File "c:\users\konstantin\projects\microblog\venv\lib\site-packages\jinja2\environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'form' is undefined
+2018-10-12 12:35:31,795 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
+2018-10-12 12:46:48,320 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
+2018-10-12 12:47:05,511 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
+2018-10-12 12:47:44,574 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
+2018-10-12 13:11:25,386 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
+2018-10-12 13:17:36,808 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
+2018-10-12 13:18:03,297 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
+2018-10-12 13:36:26,706 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
+2018-10-12 13:51:02,877 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
+2018-10-12 14:35:40,058 INFO: Microblog startup [in C:\Users\Konstantin\projects\microblog\myapp\__init__.py:45]
